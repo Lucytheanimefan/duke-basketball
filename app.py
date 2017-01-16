@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 from JSONEncoder import JSONEncoder
 import os
+from server import *
 
 app = Flask(__name__)
 db = server.get_db()
