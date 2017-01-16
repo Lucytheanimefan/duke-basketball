@@ -1,0 +1,28 @@
+.court-container {
+    position: relative;
+    z-index: 1;
+}
+
+#court {
+    position: absolute;
+    z-index: 2;
+}
+
+#grid {
+    position: relative;
+    z-index: 3;
+    width: 965px;
+    height: 541px;
+}
+
+#grid td{
+	color: green;
+}
+#grid td.clicked {
+    background-color:rgba(0,0,0,0.5);
+    font-weight:bold; color:red;
+}
+
+td{
+	text-align: center;
+}

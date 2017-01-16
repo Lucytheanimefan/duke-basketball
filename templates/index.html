@@ -1,0 +1,30 @@
+{% extends "layout.html" %} {% block body %}
+<div class="row">
+    <div class="court-container">
+        <img src="/static/img/Duke_Blue_Devils_Court.jpg" id="court">
+        <table class="grid" id="grid"></table>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <select id="athleteName" class="form-control">
+            <option>athlete name 1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+        </select>
+    </div>
+    <div class="col-md-4">
+        <div class="input-group clockpicker" data-placement="left" data-align="top" data-autoclose="true">
+            <input id="time" type="text" class="form-control" value="13:14">
+            <span class="input-group-addon">
+        <span class="glyphicon glyphicon-time"></span>
+            </span>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <button class="btn btn-default" type="submit" id="submit">Submit</button>
+    </div>
+</div>
+{% endblock %}
