@@ -40,10 +40,11 @@ var grid = clickableGrid(15, 20, function(el, row, col, i) {
 });
 
 $("#submit").click(function() {
-    var name = $("#athleteName").text();
+    var name = $("#athleteName").val();
     var time = $("#time").val();
     data["name"] = name;
     data["time"] = time;
+    data["day"] = timestamp();
     submitInfo(data);
 })
 
@@ -65,4 +66,25 @@ function submitInfo(data) {
         }
     });
 
+}
+
+function timestamp() {
+    var d = new Date();
+    var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    var days = ['Mon', 'Tue', 'Wed', 'Thurs', 'Fri', 'Sat', 'Sun'];
+    var day = days[d.getDay()];
+    var hr = d.getHours();
+    var min = d.getMinutes();
+    if (min < 10) {
+        min = "0" + min;
+    }
+    var ampm = hr < 12 ? "am" : "pm";
+    var date = d.getDate();
+    var month = months[d.getMonth()];
+    var year = d.getFullYear();
+    var seconds = d.getSeconds();
+
+    var timestamp = date + "-" + month + "-" + year; //day+ " " + hr + ":" + min + ":" + seconds + ampm + " " + date + " " + month + " " + year;
+
+    return timestamp;
 }
