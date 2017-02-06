@@ -12,17 +12,19 @@ def main():
 
 @app.route("/submit",methods = ["POST"])
 def logData():
-	print request.get_json()
-	if (db.data.find({"type": "shots"}).count() == 0):
+	dat = request.get_json()
+	game = dat["game"]
+	if (db.data.find({"game": game}).count() == 0):
 		print "no type shots"
 		data = {}
 		data["type"]="shots"
-		data["data"]=[request.get_json()]
+		data["data"]=[dat]
+		data["game"] = game
 		db.data.insert(data)
 	else:
 		print "update type shots"
-		db.data.update({'type':"shots"}, 
-			{'$push': {"data": [request.get_json()]}})
+		db.data.update({'game':game}, 
+			{'$push': {"data": [dat]}})
 	return "Submitted data"
 
 if __name__ == "__main__":
