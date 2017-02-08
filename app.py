@@ -11,7 +11,7 @@ def main():
 	return render_template("index.html")
 
 @app.route("/options")
-def main():
+def options():
 	return render_template("options.htm.j2")
 
 @app.route("/submit",methods = ["POST"])
