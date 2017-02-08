@@ -50,9 +50,11 @@ $("#submit").click(function() {
     var name = $("#athleteName").val();
     var time = $("#time").val();
     var game = $("#game").val()
+    var shotMade = $("#shotMade").val();
     data["name"] = name;
     data["time"] = timestamp();
     data["game"] = game;
+    data["madeShot"] = shotMade;
     //data["day"] = timestamp();
     submitInfo(data);
 })
